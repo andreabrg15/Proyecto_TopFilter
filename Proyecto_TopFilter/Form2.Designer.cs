@@ -37,12 +37,12 @@
             this.TinteVerdeBtn = new System.Windows.Forms.Button();
             this.TinteRojoBtn = new System.Windows.Forms.Button();
             this.InvertirBtn = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.OjodePezBtn = new System.Windows.Forms.Button();
             this.RelieveBtn = new System.Windows.Forms.Button();
             this.RuidoBtn = new System.Windows.Forms.Button();
             this.PixeladoBtn = new System.Windows.Forms.Button();
             this.ContrasteBtn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.AberracionBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button14 = new System.Windows.Forms.Button();
@@ -116,12 +116,12 @@
             this.panel3.Controls.Add(this.TinteVerdeBtn);
             this.panel3.Controls.Add(this.TinteRojoBtn);
             this.panel3.Controls.Add(this.InvertirBtn);
-            this.panel3.Controls.Add(this.button9);
+            this.panel3.Controls.Add(this.OjodePezBtn);
             this.panel3.Controls.Add(this.RelieveBtn);
             this.panel3.Controls.Add(this.RuidoBtn);
             this.panel3.Controls.Add(this.PixeladoBtn);
             this.panel3.Controls.Add(this.ContrasteBtn);
-            this.panel3.Controls.Add(this.button4);
+            this.panel3.Controls.Add(this.AberracionBtn);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 122);
@@ -193,20 +193,21 @@
             this.InvertirBtn.UseVisualStyleBackColor = false;
             this.InvertirBtn.Click += new System.EventHandler(this.InvertirBtn_Click);
             // 
-            // button9
+            // OjodePezBtn
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(37, 336);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(180, 42);
-            this.button9.TabIndex = 6;
-            this.button9.Text = "Ojo de pez";
-            this.button9.UseVisualStyleBackColor = false;
+            this.OjodePezBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.OjodePezBtn.FlatAppearance.BorderSize = 0;
+            this.OjodePezBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.OjodePezBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OjodePezBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OjodePezBtn.ForeColor = System.Drawing.Color.White;
+            this.OjodePezBtn.Location = new System.Drawing.Point(37, 336);
+            this.OjodePezBtn.Name = "OjodePezBtn";
+            this.OjodePezBtn.Size = new System.Drawing.Size(180, 42);
+            this.OjodePezBtn.TabIndex = 6;
+            this.OjodePezBtn.Text = "Ojo de pez";
+            this.OjodePezBtn.UseVisualStyleBackColor = false;
+            this.OjodePezBtn.Click += new System.EventHandler(this.OjodePezBtn_Click);
             // 
             // RelieveBtn
             // 
@@ -272,20 +273,21 @@
             this.ContrasteBtn.UseVisualStyleBackColor = false;
             this.ContrasteBtn.Click += new System.EventHandler(this.ContrasteBtn_Click);
             // 
-            // button4
+            // AberracionBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(37, 96);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(180, 42);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Gaussiano";
-            this.button4.UseVisualStyleBackColor = false;
+            this.AberracionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.AberracionBtn.FlatAppearance.BorderSize = 0;
+            this.AberracionBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.AberracionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AberracionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AberracionBtn.ForeColor = System.Drawing.Color.White;
+            this.AberracionBtn.Location = new System.Drawing.Point(37, 96);
+            this.AberracionBtn.Name = "AberracionBtn";
+            this.AberracionBtn.Size = new System.Drawing.Size(180, 42);
+            this.AberracionBtn.TabIndex = 1;
+            this.AberracionBtn.Text = "Aberración cromática";
+            this.AberracionBtn.UseVisualStyleBackColor = false;
+            this.AberracionBtn.Click += new System.EventHandler(this.AberracionBtn_Click);
             // 
             // label1
             // 
@@ -617,12 +619,12 @@
         private System.Windows.Forms.Button TinteVerdeBtn;
         private System.Windows.Forms.Button TinteRojoBtn;
         private System.Windows.Forms.Button InvertirBtn;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button OjodePezBtn;
         private System.Windows.Forms.Button RelieveBtn;
         private System.Windows.Forms.Button RuidoBtn;
         private System.Windows.Forms.Button PixeladoBtn;
         private System.Windows.Forms.Button ContrasteBtn;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button AberracionBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button14;

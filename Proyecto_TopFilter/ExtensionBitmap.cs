@@ -605,5 +605,152 @@ namespace Proyecto_TopFilter
             return resultado;
         }
 
+        public static Bitmap EfectoOjodePez(this Bitmap bitmapOriginal)
+        {
+            BitmapData datosOriginal = bitmapOriginal.LockBits(new Rectangle(0, 0,
+                                       bitmapOriginal.Width, bitmapOriginal.Height),
+                                       ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+            byte[] pixelBuffer = new byte[datosOriginal.Stride * datosOriginal.Height];
+            byte[] resultadoBuffer = new byte[datosOriginal.Stride * datosOriginal.Height];
+
+            // Copia los datos del bitmap a pixelbuffer
+            Marshal.Copy(datosOriginal.Scan0, pixelBuffer, 0, pixelBuffer.Length);
+
+            bitmapOriginal.UnlockBits(datosOriginal);
+
+            double centroX = bitmapOriginal.Width / 2;
+            double centroY = bitmapOriginal.Height / 2;
+            double radio = Math.Min(centroX, centroY);
+
+            for (int y = 0; y < bitmapOriginal.Height; y++)
+            {
+                for (int x = 0; x < bitmapOriginal.Width; x++)
+                {
+                    double dx = x - centroX;
+                    double dy = y - centroY;
+                    double distancia = Math.Sqrt(dx * dx + dy * dy);
+
+                    int indiceResultado = y * datosOriginal.Stride + x * 4;
+
+                    // Dibuja solo dentro del circulo
+                    if (distancia < radio)
+                    {
+                        // Coordenadas polares
+                        double r = distancia / radio;
+                        double theta = Math.Atan2(dy, dx);
+                        // Distorsion del radio para crear efecto
+                        double distorsionRadio = r * r;
+
+                        double originalXf = centroX + distorsionRadio * radio * Math.Cos(theta);
+                        double originalYf = centroY + distorsionRadio * radio * Math.Sin(theta);
+
+                        int originalX;
+                        int originalY;
+                        if ((int)originalXf.CompareTo(0) < 0)
+                        { originalX = 0; }
+                        else if((int)originalXf.CompareTo(bitmapOriginal.Width - 1) > 0)
+                        { originalX = bitmapOriginal.Width - 1; }
+                        else
+                        { originalX = (int)originalXf; }
+
+                        if ((int)originalYf.CompareTo(0) < 0)
+                        { originalY = 0; }
+                        else if ((int)originalYf.CompareTo(bitmapOriginal.Height - 1) > 0)
+                        { originalY = bitmapOriginal.Height - 1; }
+                        else
+                        { originalY = (int)originalYf; }
+
+                        int indiceOriginal = originalY * datosOriginal.Stride + originalX * 4;
+
+                        resultadoBuffer[indiceResultado] = pixelBuffer[indiceOriginal]; //Azul
+                        resultadoBuffer[indiceResultado + 1] = pixelBuffer[indiceOriginal + 1]; //Verde
+                        resultadoBuffer[indiceResultado + 2] = pixelBuffer[indiceOriginal + 2]; //Rojo
+                        resultadoBuffer[indiceResultado + 3] = 255;
+                    }
+                    else
+                    {
+                        resultadoBuffer[indiceResultado] = 0;
+                        resultadoBuffer[indiceResultado + 1] = 0;
+                        resultadoBuffer[indiceResultado + 2] = 0;
+                        resultadoBuffer[indiceResultado + 3] = 255;
+                    }
+                }
+            }
+
+            Bitmap resultado = new Bitmap(bitmapOriginal.Width, bitmapOriginal.Height);
+
+            BitmapData datosResultado = resultado.LockBits(new Rectangle(0, 0,
+                                        resultado.Width, resultado.Height),
+                                        ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+            Marshal.Copy(resultadoBuffer, 0, datosResultado.Scan0, resultadoBuffer.Length);
+            resultado.UnlockBits(datosResultado);
+
+            return resultado;
+        }
+
+        public static Bitmap AberracionCromatica(this Bitmap bitmapOriginal, int aberracion)
+        {
+            // Prevenir que el Bitmap no cambie su ubicación en memoria
+            BitmapData datosOriginal = bitmapOriginal.LockBits(new Rectangle(0, 0,
+                                        bitmapOriginal.Width, bitmapOriginal.Height),
+                                        ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+
+
+            byte[] pixelBuffer = new byte[datosOriginal.Stride * datosOriginal.Height];
+            byte[] resultadoBuffer = new byte[datosOriginal.Stride * datosOriginal.Height];
+
+            // Copia los datos del bitmap a pixelbuffer
+            Marshal.Copy(datosOriginal.Scan0, pixelBuffer, 0, pixelBuffer.Length);
+
+            bitmapOriginal.UnlockBits(datosOriginal);
+
+            byte azul, verde, rojo;
+
+            // Se recorre cada pixel de pixel buffer y sus espacios de color RGBA
+            for (int y = 0; y < bitmapOriginal.Height; y++)
+            {
+                for (int x = 0; x < bitmapOriginal.Width; x++)
+                {
+                    int pixel = y * datosOriginal.Stride + x * 4;
+
+                    verde = pixelBuffer[pixel + 1];
+
+                    if (x + aberracion < bitmapOriginal.Width)
+                    {
+                        int pixelRojo = y * datosOriginal.Stride + (x + aberracion) * 4;
+                        rojo = pixelBuffer[pixelRojo + 2];
+                    } 
+                    else { rojo = 0; }
+
+                    if (x - aberracion >= 0)
+                    {
+                        int pixelAzul = y * datosOriginal.Stride + (x - aberracion) * 4;
+                        azul = pixelBuffer[pixelAzul];
+                    } 
+                    else { azul = 0; }
+
+                    resultadoBuffer[pixel] = azul;
+                    resultadoBuffer[pixel + 1] = verde;
+                    resultadoBuffer[pixel + 2] = rojo;
+                    resultadoBuffer[pixel + 3] = 255;
+                }
+            }
+            Bitmap resultado = new Bitmap(bitmapOriginal.Width, bitmapOriginal.Height);
+
+
+            BitmapData datosResultado = resultado.LockBits(new Rectangle(0, 0,
+                                        resultado.Width, resultado.Height),
+                                        ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+
+
+            Marshal.Copy(resultadoBuffer, 0, datosResultado.Scan0, resultadoBuffer.Length);
+            resultado.UnlockBits(datosResultado);
+
+
+            return resultado;
+        }
+
     }
 }

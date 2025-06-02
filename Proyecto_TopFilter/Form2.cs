@@ -27,8 +27,8 @@ namespace Proyecto_TopFilter
         Mat frame;
         bool _isPlaying = false;
 
-        enum Filtro { Original, Invertir, Relieve, Contraste, Pixelado, 
-                      Ruido, Rojo, Verde, Azul }
+        enum Filtro { Original, Aberracion, Relieve, Contraste, Ruido,
+                      Pixelado, OjodePez, Invertir, Rojo, Verde, Azul }
         Filtro videoFiltro = Filtro.Original;
 
         int anchoFrame;
@@ -181,6 +181,9 @@ namespace Proyecto_TopFilter
                             Bitmap frameOriginal = frame.ToBitmap();
                             switch (videoFiltro)
                             {
+                                case Filtro.Aberracion:
+                                    Video_pictureBox.Image = frameOriginal.AberracionCromatica(12);
+                                    break;
                                 case Filtro.Relieve:
                                     Video_pictureBox.Image = frameOriginal.ConvolucionFiltro((ConvolucionBase)(new FiltroRelieve()));
                                     break;
@@ -192,6 +195,9 @@ namespace Proyecto_TopFilter
                                     break;
                                 case Filtro.Pixelado:
                                     Video_pictureBox.Image = frameOriginal.Pixelado(16);
+                                    break;
+                                case Filtro.OjodePez:
+                                    Video_pictureBox.Image = frameOriginal.EfectoOjodePez();
                                     break;
                                 case Filtro.Invertir:
                                     Video_pictureBox.Image = frameOriginal.Invertir();
@@ -359,6 +365,30 @@ namespace Proyecto_TopFilter
             if (capture != null)
             {
                 videoFiltro = Filtro.Ruido;
+                if (!_isPlaying)
+                {
+                    _isPlaying = true;
+                }
+            }
+        }
+
+        private void OjodePezBtn_Click(object sender, EventArgs e)
+        {
+            if (capture != null)
+            {
+                videoFiltro = Filtro.OjodePez;
+                if (!_isPlaying)
+                {
+                    _isPlaying = true;
+                }
+            }
+        }
+
+        private void AberracionBtn_Click(object sender, EventArgs e)
+        {
+            if (capture != null)
+            {
+                videoFiltro = Filtro.Aberracion;
                 if (!_isPlaying)
                 {
                     _isPlaying = true;
