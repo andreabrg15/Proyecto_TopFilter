@@ -48,7 +48,7 @@
             this.CaricaturizarBtn = new System.Windows.Forms.Button();
             this.PixeladoBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
+            this.manual_menuBtn = new System.Windows.Forms.Button();
             this.detectarColor_menuBtn = new System.Windows.Forms.Button();
             this.editarVideo_menuBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -363,7 +363,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(105)))), ((int)(((byte)(110)))));
-            this.panel2.Controls.Add(this.button14);
+            this.panel2.Controls.Add(this.manual_menuBtn);
             this.panel2.Controls.Add(this.detectarColor_menuBtn);
             this.panel2.Controls.Add(this.editarVideo_menuBtn);
             this.panel2.Controls.Add(this.button1);
@@ -374,19 +374,20 @@
             this.panel2.Size = new System.Drawing.Size(1366, 61);
             this.panel2.TabIndex = 30;
             // 
-            // button14
+            // manual_menuBtn
             // 
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.Black;
-            this.button14.Location = new System.Drawing.Point(1123, 0);
-            this.button14.Margin = new System.Windows.Forms.Padding(2);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(205, 61);
-            this.button14.TabIndex = 5;
-            this.button14.Text = "Manual de usuario";
-            this.button14.UseVisualStyleBackColor = true;
+            this.manual_menuBtn.FlatAppearance.BorderSize = 0;
+            this.manual_menuBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manual_menuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manual_menuBtn.ForeColor = System.Drawing.Color.Black;
+            this.manual_menuBtn.Location = new System.Drawing.Point(1123, 0);
+            this.manual_menuBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.manual_menuBtn.Name = "manual_menuBtn";
+            this.manual_menuBtn.Size = new System.Drawing.Size(205, 61);
+            this.manual_menuBtn.TabIndex = 5;
+            this.manual_menuBtn.Text = "Manual de usuario";
+            this.manual_menuBtn.UseVisualStyleBackColor = true;
+            this.manual_menuBtn.Click += new System.EventHandler(this.manual_menuBtn_Click);
             // 
             // detectarColor_menuBtn
             // 
@@ -708,7 +709,7 @@
         private System.Windows.Forms.Button GaussianoBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button manual_menuBtn;
         private System.Windows.Forms.Button detectarColor_menuBtn;
         private System.Windows.Forms.Button editarVideo_menuBtn;
         private System.Windows.Forms.Button button1;

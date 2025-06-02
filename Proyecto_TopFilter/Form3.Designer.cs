@@ -35,9 +35,11 @@
             this.R_label = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.apagarCamBtn = new System.Windows.Forms.Button();
             this.encenderCamBtn = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
+            this.manual_menuBtn = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.editarVideo_menuBtn = new System.Windows.Forms.Button();
             this.editarImagen_menuBtn = new System.Windows.Forms.Button();
@@ -47,7 +49,6 @@
             this.Camara_pictureBox = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.be_label = new System.Windows.Forms.Label();
             this.a_label = new System.Windows.Forms.Label();
             this.L_label = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.X_label = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.CirculoCromatico_pictureBox = new System.Windows.Forms.PictureBox();
-            this.apagarCamBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -123,6 +123,22 @@
             this.panel3.Size = new System.Drawing.Size(250, 698);
             this.panel3.TabIndex = 55;
             // 
+            // apagarCamBtn
+            // 
+            this.apagarCamBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.apagarCamBtn.FlatAppearance.BorderSize = 0;
+            this.apagarCamBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.apagarCamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.apagarCamBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.apagarCamBtn.ForeColor = System.Drawing.Color.White;
+            this.apagarCamBtn.Location = new System.Drawing.Point(40, 165);
+            this.apagarCamBtn.Name = "apagarCamBtn";
+            this.apagarCamBtn.Size = new System.Drawing.Size(180, 42);
+            this.apagarCamBtn.TabIndex = 69;
+            this.apagarCamBtn.Text = "Apagar cámara";
+            this.apagarCamBtn.UseVisualStyleBackColor = false;
+            this.apagarCamBtn.Click += new System.EventHandler(this.apagarCamBtn_Click);
+            // 
             // encenderCamBtn
             // 
             this.encenderCamBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -139,10 +155,21 @@
             this.encenderCamBtn.UseVisualStyleBackColor = false;
             this.encenderCamBtn.Click += new System.EventHandler(this.encenderCamBtn_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoEllipsis = true;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(175, 561);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 29);
+            this.label8.TabIndex = 68;
+            this.label8.Text = "Color";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(105)))), ((int)(((byte)(110)))));
-            this.panel2.Controls.Add(this.button14);
+            this.panel2.Controls.Add(this.manual_menuBtn);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.editarVideo_menuBtn);
             this.panel2.Controls.Add(this.editarImagen_menuBtn);
@@ -153,19 +180,20 @@
             this.panel2.Size = new System.Drawing.Size(1366, 61);
             this.panel2.TabIndex = 54;
             // 
-            // button14
+            // manual_menuBtn
             // 
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.Black;
-            this.button14.Location = new System.Drawing.Point(1123, 0);
-            this.button14.Margin = new System.Windows.Forms.Padding(2);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(205, 61);
-            this.button14.TabIndex = 5;
-            this.button14.Text = "Manual de usuario";
-            this.button14.UseVisualStyleBackColor = true;
+            this.manual_menuBtn.FlatAppearance.BorderSize = 0;
+            this.manual_menuBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manual_menuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manual_menuBtn.ForeColor = System.Drawing.Color.Black;
+            this.manual_menuBtn.Location = new System.Drawing.Point(1123, 0);
+            this.manual_menuBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.manual_menuBtn.Name = "manual_menuBtn";
+            this.manual_menuBtn.Size = new System.Drawing.Size(205, 61);
+            this.manual_menuBtn.TabIndex = 5;
+            this.manual_menuBtn.Text = "Manual de usuario";
+            this.manual_menuBtn.UseVisualStyleBackColor = true;
+            this.manual_menuBtn.Click += new System.EventHandler(this.manual_menuBtn_Click);
             // 
             // button3
             // 
@@ -266,17 +294,6 @@
             this.pictureBox2.TabIndex = 67;
             this.pictureBox2.TabStop = false;
             // 
-            // label8
-            // 
-            this.label8.AutoEllipsis = true;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(175, 561);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 29);
-            this.label8.TabIndex = 68;
-            this.label8.Text = "Color";
-            // 
             // be_label
             // 
             this.be_label.AutoEllipsis = true;
@@ -373,22 +390,6 @@
             this.CirculoCromatico_pictureBox.TabIndex = 77;
             this.CirculoCromatico_pictureBox.TabStop = false;
             // 
-            // apagarCamBtn
-            // 
-            this.apagarCamBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.apagarCamBtn.FlatAppearance.BorderSize = 0;
-            this.apagarCamBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.apagarCamBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.apagarCamBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.apagarCamBtn.ForeColor = System.Drawing.Color.White;
-            this.apagarCamBtn.Location = new System.Drawing.Point(40, 165);
-            this.apagarCamBtn.Name = "apagarCamBtn";
-            this.apagarCamBtn.Size = new System.Drawing.Size(180, 42);
-            this.apagarCamBtn.TabIndex = 69;
-            this.apagarCamBtn.Text = "Apagar cámara";
-            this.apagarCamBtn.UseVisualStyleBackColor = false;
-            this.apagarCamBtn.Click += new System.EventHandler(this.apagarCamBtn_Click);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -441,7 +442,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button encenderCamBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button manual_menuBtn;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button editarVideo_menuBtn;
         private System.Windows.Forms.Button editarImagen_menuBtn;

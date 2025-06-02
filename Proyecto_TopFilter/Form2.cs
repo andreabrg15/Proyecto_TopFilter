@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -86,6 +87,20 @@ namespace Proyecto_TopFilter
                 timer1.Stop();
                 capture?.Dispose();
                 capture = null;
+            }
+        }
+
+        private void manual_menuBtn_Click(object sender, EventArgs e)
+        {
+            string manualURL = "https://drive.google.com/file/d/17lLXQnzNhYL8cqgngaNIDKEMWHLsSRo7/view?usp=sharing";
+
+            try
+            {
+                Process.Start(manualURL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -182,7 +197,7 @@ namespace Proyecto_TopFilter
                             switch (videoFiltro)
                             {
                                 case Filtro.Aberracion:
-                                    Video_pictureBox.Image = frameOriginal.AberracionCromatica(12);
+                                    Video_pictureBox.Image = frameOriginal.AberracionCromatica(10);
                                     break;
                                 case Filtro.Relieve:
                                     Video_pictureBox.Image = frameOriginal.ConvolucionFiltro((ConvolucionBase)(new FiltroRelieve()));

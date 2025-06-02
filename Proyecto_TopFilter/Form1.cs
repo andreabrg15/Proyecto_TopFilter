@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Proyecto_TopFilter
 {
@@ -78,6 +79,20 @@ namespace Proyecto_TopFilter
             this.Hide();
             var form3 = new Form3();
             form3.Show();
+        }
+
+        private void manual_menuBtn_Click(object sender, EventArgs e)
+        {
+            string manualURL = "https://drive.google.com/file/d/17lLXQnzNhYL8cqgngaNIDKEMWHLsSRo7/view?usp=sharing";
+
+            try
+            {
+                Process.Start(manualURL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Botón para subir la imagen a la que se aplicarán los filtros

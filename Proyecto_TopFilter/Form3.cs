@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
@@ -96,6 +97,20 @@ namespace Proyecto_TopFilter
                 timer1.Stop();
                 capture?.Dispose();
                 capture = null;
+            }
+        }
+
+        private void manual_menuBtn_Click(object sender, EventArgs e)
+        {
+            string manualURL = "https://drive.google.com/file/d/17lLXQnzNhYL8cqgngaNIDKEMWHLsSRo7/view?usp=sharing";
+
+            try
+            {
+                Process.Start(manualURL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
