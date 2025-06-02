@@ -30,9 +30,10 @@ namespace Proyecto_TopFilter
         // y la que tenga el filtro
         private Bitmap imagenOriginal = null;
         private Bitmap imagenResultante = null;
-        bool filtroRojo = false;
-        bool filtroVerde = false;
-        bool filtroAzul = false;
+
+        // Para saber si tiene un filtro de Tinte de color (RGB)
+        // 0 = Ninguno, 1 = Rojo, 2 = Verde, 3 = Azul
+        int filtrodeTinteColor = 0;
 
         int anchoFrame;
         int altoFrame;
@@ -167,17 +168,35 @@ namespace Proyecto_TopFilter
             {
                 for (int x = 0; x < anchoFrame; x++)
                 {
-                    valor_canalB = data[y, x, 0];
-                    histoB[valor_canalB]++;
+                    switch (filtrodeTinteColor)
+                    {
+                        case 1:
+                            valor_canalR = data[y, x, 2];
+                            histoR[valor_canalR]++;
+                            break;
+                        case 2:
+                            valor_canalG = data[y, x, 1];
+                            histoG[valor_canalG]++;
+                            break;
+                        case 3:
+                            valor_canalB = data[y, x, 0];
+                            histoB[valor_canalB]++;
+                            break;
+                        default:
+                            valor_canalB = data[y, x, 0];
+                            histoB[valor_canalB]++;
 
-                    valor_canalG = data[y, x, 1];
-                    histoG[valor_canalG]++;
+                            valor_canalG = data[y, x, 1];
+                            histoG[valor_canalG]++;
 
-                    valor_canalR = data[y, x, 2];
-                    histoR[valor_canalR]++;
+                            valor_canalR = data[y, x, 2];
+                            histoR[valor_canalR]++;
+                            break;
+                    }
                 }
             }
 
+            filtrodeTinteColor = 0;
             HistoRojo_pictureBox.Invalidate();
             HistoVerde_pictureBox.Invalidate();
             HistoAzul_pictureBox.Invalidate();
@@ -243,7 +262,7 @@ namespace Proyecto_TopFilter
             {
                 imagenResultante = imagenOriginal.TinteColor(true, false, false);
                 Imagen_pictureBox.Image = imagenResultante;
-                filtroRojo = true;
+                filtrodeTinteColor = 1;
                 calcularHistograma();
             }
         }
@@ -254,7 +273,7 @@ namespace Proyecto_TopFilter
             {
                 imagenResultante = imagenOriginal.TinteColor(false, true, false);
                 Imagen_pictureBox.Image = imagenResultante;
-                filtroVerde = true;
+                filtrodeTinteColor = 2;
                 calcularHistograma();
             }
         }
@@ -265,7 +284,7 @@ namespace Proyecto_TopFilter
             {
                 imagenResultante = imagenOriginal.TinteColor(false, false, true);
                 Imagen_pictureBox.Image = imagenResultante;
-                filtroAzul = true;
+                filtrodeTinteColor = 3;
                 calcularHistograma();
             }
         }

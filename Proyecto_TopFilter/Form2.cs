@@ -132,14 +132,31 @@ namespace Proyecto_TopFilter
             {
                 for (int x = 0; x < anchoFrame; x++)
                 {
-                    valor_canalB = data[y, x, 0];
-                    histoB[valor_canalB]++;
+                    switch(videoFiltro)
+                    {
+                        case Filtro.Rojo:
+                            valor_canalR = data[y, x, 2];
+                            histoR[valor_canalR]++;
+                            break;
+                        case Filtro.Verde:
+                            valor_canalG = data[y, x, 1];
+                            histoG[valor_canalG]++;
+                            break;
+                        case Filtro.Azul:
+                            valor_canalB = data[y, x, 0];
+                            histoB[valor_canalB]++;
+                            break;
+                        default:
+                            valor_canalB = data[y, x, 0];
+                            histoB[valor_canalB]++;
 
-                    valor_canalG = data[y, x, 1];
-                    histoG[valor_canalG]++;
+                            valor_canalG = data[y, x, 1];
+                            histoG[valor_canalG]++;
 
-                    valor_canalR = data[y, x, 2];
-                    histoR[valor_canalR]++;
+                            valor_canalR = data[y, x, 2];
+                            histoR[valor_canalR]++;
+                            break;
+                    }
                 }
             }
 
